@@ -43,7 +43,7 @@ export default async function HomePage() {
           <a
             rel="noopener noreferrer"
             target="_blank"
-            href="https://twitter.com/leeerob"
+            href="https://twitter.com/hayatibis"
             className="flex items-center gap-2"
           >
             <TwitterIcon />
