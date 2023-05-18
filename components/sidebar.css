@@ -8,4 +8,10 @@ svg.active .svg-elem-1 {
     fill: rgb(0, 0, 0);
 }
 
+@media (prefers-color-scheme: dark) {
+    svg.active .svg-elem-1 {
+        fill: rgb(255, 255, 255);
+    }
+}
+
 .s0 { fill: #000000 } 
