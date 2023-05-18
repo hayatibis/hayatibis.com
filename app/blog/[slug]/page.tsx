@@ -28,8 +28,8 @@ export async function generateMetadata({
     slug,
   } = post;
   const ogImage = image
-    ? `https://hayatibis.com${image}`
-    : `https://hayatibis.com/api/og?title=${title}`;
+    ? `https://hayatibis.dev${image}`
+    : `https://hayatibis.dev/api/og?title=${title}`;
 
   return {
     title,
@@ -39,7 +39,7 @@ export async function generateMetadata({
       description,
       type: 'article',
       publishedTime,
-      url: `https://hayatibis.com/blog/${slug}`,
+      url: `https://hayatibis.dev/blog/${slug}`,
       images: [
         {
           url: ogImage,

@@ -5,7 +5,7 @@ export default function robots() {
         userAgent: '*',
       },
     ],
-    sitemap: 'https://hayatibis.com/sitemap.xml',
-    host: 'https://hayatibis.com',
+    sitemap: 'https://hayatibis.dev/sitemap.xml',
+    host: 'https://hayatibis.dev',
   };
 }

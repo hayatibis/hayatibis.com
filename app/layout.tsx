@@ -21,11 +21,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Hayati Ibis',
     description: 'Developer, writer, and creator.',
-    url: 'https://hayatibis.com',
+    url: 'https://hayatibis.dev',
     siteName: 'Hayati Ibis',
     images: [
       {
-        url: 'https://hayatibis.com/og.jpg',
+        url: 'https://hayatibis.dev/og.jpg',
         width: 1920,
         height: 1080,
       },
