@@ -1,0 +1,11 @@
+svg .svg-elem-1 {
+    fill: transparent;
+    -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.8s;
+            transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.8s;
+}
+ 
+svg.active .svg-elem-1 {
+    fill: rgb(0, 0, 0);
+}
+
+.s0 { fill: #000000 } 

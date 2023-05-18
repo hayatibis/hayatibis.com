@@ -1,22 +1,26 @@
 import me from '../app/avatar.jpg';
 
-export const name = 'Lee Robinson';
+export const name = 'Hayati Ibis';
 export const avatar = me;
 export const about = () => {
   return (
     <>
-      Hey, I'm Lee. I'm the <b>VP of Developer Experience at Vercel</b> where my
-      team helps developers build a faster web.
+      Hey, I'm Hayati. I'm a big data and streaming data enthusiast with a 
+      passion for software development.
     </>
   );
 };
 export const bio = () => {
   return (
     <>
-      I'm a Next.js contributor and help lead our open-source communities. I'm
-      passionate about frontend development and have created courses on React,
-      Next.js, and web development. I'm an advisor and investor in early stage
-      startups.
+      I'm passionate about containerization and leveraging Docker to build
+      scalable and portable applications. With Next.js, I enjoy crafting
+      performant and interactive web experiences. Additionally, I have
+      expertise in working with Timescale databases, enabling efficient
+      handling and analysis of time-series data. Join me as we explore the
+      fascinating world of containerization, modern web development, and
+      efficient data management with Timescale databases. Let's build
+      innovative solutions together!
     </>
   );
 };

@@ -23,7 +23,7 @@ export async function getTweetCount() {
   }
 
   const response = await fetch(
-    `https://api.twitter.com/2/users/by/username/leeerob?user.fields=public_metrics`,
+    `https://api.twitter.com/2/users/by/username/hayatibis?user.fields=public_metrics`,
     {
       headers: {
         Authorization: `Bearer ${process.env.TWITTER_API_TOKEN}`,
@@ -41,8 +41,8 @@ export const getStarCount = cache(async () => {
   });
 
   const req = await octokit.request('GET /repos/{owner}/{repo}', {
-    owner: 'leerob',
-    repo: 'leerob.io',
+    owner: 'hayatibis',
+    repo: 'hayatibis.com',
   });
 
   return req.data.stargazers_count;

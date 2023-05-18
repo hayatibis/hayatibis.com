@@ -1,9 +1,3 @@
-// react-static-tweets isn't currently working
-// https://github.com/transitive-bullshit/react-static-tweets/issues/55
-// so using the API directly for now, maybe change later
-//
-// You can view previous version with react-static-tweets in the PR commits
-// https://github.com/leerob/leerob.io/pull/564
 export const getTweets = async (ids) => {
   if (ids.length === 0) {
     return [];
@@ -70,7 +64,7 @@ export const getTweets = async (ids) => {
 
 export const getTweetCount = async () => {
   const response = await fetch(
-    `https://api.twitter.com/2/users/by/username/leeerob?user.fields=public_metrics`,
+    `https://api.twitter.com/2/users/by/username/hayatibis?user.fields=public_metrics`,
     {
       headers: {
         Authorization: `Bearer ${process.env.TWITTER_API_TOKEN}`,
