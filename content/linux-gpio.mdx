@@ -1,0 +1,59 @@
+---
+title: 'A Comprehensive Guide to Linux GPIO!'
+publishedAt: '2023-05-20'
+summary: 'A comprehensive guide to Linux General Purpose Input/Output (GPIO)'
+---
+---
+
+# Guide to Linux GPIO
+
+Hello and welcome to deep dive into the world of [Linux General Purpose Input/Output(GPIO)](https://www.kernel.org/doc/html/v4.19/driver-api/gpio/index.html). As the name implies, GPIOs are a type of pin found on many processors that can either send (output) or receive (input) data. GPIOs are a cornerstone of physical computing and can be found in numerous systems, from embedded devices to Raspberry Pis. Understanding how to use them can provide a solid foundation for anyone interested in interacting with the physical world through software.
+
+## Introduction to Linux GPIO
+
+GPIO pins are incredibly versatile, and Linux provides a way to interact with these pins via the GPIO subsystem. This subsystem comes with an API that you can use to control the GPIO pins attached to your system. By using this API, you can program a GPIO pin to act as either an input or an output, and then change its state or read its current state.
+
+The real power of GPIOs comes from the fact that they are general purpose, meaning they can be configured and controlled at runtime to behave in various ways. They can be used to read from switches, light sensors, or any other type of digital signal. Likewise, they can control LEDs, relays, or any other kind of binary output device.
+
+## Accessing GPIOs in Linux
+
+Traditionally, GPIO pins were accessed in Linux via [sysfs](https://www.kernel.org/doc/html/next/filesystems/sysfs.html), the virtual file system provided by the Linux kernel. However, sysfs was deprecated in favor of a new interface known as GPIO [character devices](https://askubuntu.com/questions/1021394/what-is-a-character-device), introduced in Linux version 4.8. The new interface is more efficient, more flexible, and provides better error reporting, among other benefits.
+
+If you're insterested in exploring the evolution of the new interface, consider giving [this](https://elinux.org/images/c/cb/Linux_GPIO-Evolution_and_Current_State_of_the_User_API.pdf) resource a read.  For a comprehensive understanding of the entire topic, [this](https://www.thegoodpenguin.co.uk/blog/stop-using-sys-class-gpio-its-deprecated/) in-depth article is highly recommended.
+
+Long story short, The GPIO character device interface is accessed through device files typically located in `/dev/gpiochipN`, where `N` is the number of the GPIO chip. Each of these chips can have one or more lines (i.e., pins), which are individually addressed by their offset on the chip.
+
+Here's a general process of how you'd interact with GPIOs using the new character device interface:
+
+1. **Open the GPIO Chip**: First, you need to open the GPIO chip device file (e.g., `/dev/gpiochip0`).
+2. **Request a GPIO Line**: Once you've opened the GPIO chip, you need to request access to one or more of its lines. You can specify whether you want to use the line as an input or an output, and you can also specify the initial state for output lines.
+3. **Read from or Write to the GPIO Line**: Once you've got access to a line, you can read its value (if it's an input) or write a value to it (if it's an output).
+4. **Release the GPIO Line**: After you're done with the line, you should release it so that other programs can use it.
+
+## User Space GPIO Libraries
+
+While the GPIO character device interface provides powerful functionality, it can be a bit difficult to use directly, especially for beginners. Thankfully, there are several user-space libraries that provide easier ways to work with GPIOs.
+
+Some of these libraries include:
+
+- [**libgpiod**](https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git/about/): This C library and set of tools is the official user-space interface for the GPIO character device interface. It provides functions for all the operations you can perform on GPIOs and is designed to be easy to use and efficient.
+- [**Periphery**](https://github.com/vsergeev/python-periphery): This is a collection of libraries for various languages (including C, Python, and Lua) that provide simple and consistent APIs for several peripheral I/O (including GPIOs) in Linux.
+- [**RPi.GPIO**](https://pypi.org/project/RPi.GPIO/) **and** [**gpiozero**](https://gpiozero.readthedocs.io/en/stable/): These are Python libraries specifically designed for Raspberry Pi, but they can also be used on other Linux systems.
+
+## GPIO and IoT
+
+In the context of the Internet of Things (IoT), GPIO plays a crucial role. As IoT has grown to include a vast array of devices from smart home gadgets to industrial sensors, the ability to control and communicate with physical devices is paramount.
+
+IoT devices often require real-time interaction with various components such as sensors, LEDs, and other electronic peripherals. This is where GPIOs come in handy. By using GPIOs, IoT devices can read data from sensors (input) and control physical components (output), thus allowing interaction with the physical world.
+
+For example, in a smart home environment, a temperature sensor might be connected to a GPIO pin configured as an input. The IoT device can read the temperature data and then send a command via another GPIO pin configured as an output to control a fan or air conditioning system, based on the temperature readings.
+
+The Linux GPIO interface provides a flexible and efficient way to manage these interactions. Combined with the power of IoT platforms and protocols, such as [MQTT](https://mqtt.org/) or [CoAP](https://www.rfc-editor.org/rfc/rfc7252), developers can build robust, scalable, and interactive IoT solutions.
+
+## Conclusion
+
+Understanding and using Linux GPIOs can seem daunting at first, but with some practice, you'll find they offer an incredibly flexible method for interacting with the physical world. Whether you're designing a complex IoT system or simply want to turn on an LED with your Raspberry Pi, Linux GPIOs provide the tools you need.
+
+Remember, working with hardware interfaces like GPIO can be risky for your devices if not done correctly. Always make sure to double-check your wiring, protect against voltage spikes, and never assume a pin is an input or output without checking first.
+
+With the right knowledge and a bit of practice, you'll be able to bring your software into the physical realm, opening up a whole new world of possibilities.
