@@ -19,7 +19,7 @@ export default function AboutPage() {
       </p>
       <div className="prose prose-neutral dark:prose-invert text-neutral-800 dark:text-neutral-200">
         <p>
-          I'm currently the <b>Software Engineer</b> at Inovat.
+          I'm currently the <b>Software Engineer</b> at MilSoft Software Technologies.
         </p>
         <hr />
         <p>
